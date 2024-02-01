@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:worktest}",
+            "name": "Debug worktest",
+            "program": "${workspaceFolder:worktest}/.build/debug/worktest",
+            "preLaunchTask": "swift: Build Debug worktest"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:worktest}",
+            "name": "Release worktest",
+            "program": "${workspaceFolder:worktest}/.build/release/worktest",
+            "preLaunchTask": "swift: Build Release worktest"
+        }
+    ]
+}

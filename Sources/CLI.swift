@@ -22,24 +22,30 @@ struct Calculator: ParsableCommand{
     public func run() throws {
         let f = a
         let s = b
-        print("1")
+        let operation = Operations()
+        let HTTPOperations = HTTPOperations()
+        // print("1")
         switch operationType {
             case "sum":
-            let operation = Operations()
-            print("Sum")
-            print("a + b = \(operation.sum(s, f))")
+            // let operation = Operations()
+            // print("Sum")
+            // print("a + b = \(operation.sum(s, f))")
+            print("a + b = \(HTTPOperations.sum(s, f))")
 
             case "div":
-            let operation = Operations()
-            print("a / b = \(operation.divide(s, f))")
+            // let operation = Operations()
+            // print("a / b = \(operation.divide(s, f))")
+            print("a / b = \(HTTPOperations.divide(s, f))")
             
             case "mult":
             let operation = Operations()
-            print("a * b = \(operation.multiply(s, f))")
+            // print("a * b = \(operation.multiply(s, f))")
+            print("a * b = \(HTTPOperations.multiply(s, f))")
             
             case "substract":
-            let operation = Operations()
-            print("a - b = \(operation.substract(s, f))")
+            // let operation = Operations()
+            // print("a - b = \(operation.substract(s, f))")
+            print("a - b = \(HTTPOperations.substract(s, f))")
             
             default:
             break
