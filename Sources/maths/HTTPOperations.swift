@@ -16,94 +16,74 @@ class HTTPOperations{
     var urlComponentsMultiplicator = URLComponents(string: 
         "http://localhost:8080/calculator_back3735975708565893560/api/calc/multiplicator")!
 
-    // var dataTask = URLSessionDataTask?
 
-    func sum(_ a:Float, _ b:Float) -> Float{
+
+    func sum(_ a:Double, _ b:Double) async -> Double{
         urlComponentsSummator.query = "a=\(a)&b=\(b)"
         let url = urlComponentsSummator.url!
-        let task = session.dataTask(with: url) {data, response, error in
-        if let error = error {
-            // self.handleClientError(error)
-            print(error)
-            return
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        do{
+        let (data, response) = try await session.data(for: urlRequest)        
+            let temp = String(data: data, encoding: .utf8)!
+            let value = Double(temp)!
+            return value
         }
-        guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
-            // self.handleServerError(response)
-            print("\(response)")
-            return
+        catch{
+            print("error")
         }
-        let data = data
-        print("\(data)")
-        }
-        task.resume()
-        return a + b
+        return 1
     }
 
-    func substract(_ a:Float, _ b:Float) -> Float{
+    func substract(_ a:Double, _ b:Double) async -> Double{
         urlComponentsSubstractor.query = "a=\(a)&b=\(b)"
         let url = urlComponentsSubstractor.url!
-        let task = session.dataTask(with: url) {data, response, error in
-        if let error = error {
-            // self.handleClientError(error)
-            print(error)
-            return
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        do{
+        let (data, response) = try await session.data(for: urlRequest)         
+            let temp = String(data: data, encoding: .utf8)!
+            let value = Double(temp)!
+            return value
         }
-        guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
-            // self.handleServerError(response)
-            print(response)
-            return
+        catch{
+            print("error")
         }
-        let data = data
-        print(data)
-        }
-        task.resume()
-        return a - b
+        return 1
     }
 
-    func divide(_ a:Float, _ b:Float) -> Float{
+    func divide(_ a:Double, _ b:Double) async -> Double{
         urlComponentsDivisor.query = "a=\(a)&b=\(b)"
         let url = urlComponentsDivisor.url!
-        let task = session.dataTask(with: url) {data, response, error in
-        if let error = error {
-            // self.handleClientError(error)
-            print(error)
-            return
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        do{
+        let (data, response) = try await session.data(for: urlRequest)        
+            let temp = String(data: data, encoding: .utf8)!
+            let value = Double(temp)!
+            return value
         }
-        guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
-            // self.handleServerError(response)
-            print(response)
-            return
+        catch{
+            print("error")
         }
-        let data = data
-        print(data)
-        }
-        task.resume()
-        return a / b
+        return 1
     }
 
-    func multiply(_ a:Float, _ b:Float) -> Float{
+    func multiply(_ a:Double, _ b:Double) async -> Double{
         urlComponentsMultiplicator.query = "a=\(a)&b=\(b)"
         let url = urlComponentsMultiplicator.url!
-        let task = session.dataTask(with: url) {data, response, error in
-        if let error = error {
-            // self.handleClientError(error)
-            print(error)
-            return
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        do{
+        let (data, response) = try await session.data(for: urlRequest)
+            let temp = String(data: data, encoding: .utf8)!
+            let value = Double(temp)!
+            return value
         }
-        guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
-            // self.handleServerError(response)
-            print(response)
-            return
+        catch{
+            print("error")
         }
-        let data = data
-        print(data)
-        }
-        task.resume()
-        return a * b
+        return 1
     }
 
 }
